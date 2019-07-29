@@ -58,6 +58,8 @@ public class CartController {
 		Cart cart = new Cart();
 		cart.setProducts(selectedProdsList);
 		cart.setTotalValue(totalValue);
+
+		cart.setTotalValue(new BigDecimal("101111"));
 		model.put("cart", cart);
 		return "cart";
 	}

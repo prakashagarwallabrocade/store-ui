@@ -12,8 +12,8 @@
 					encryptionKey : "1D8IR5TUJ5VDLFRQ9XJV133hpPOUCXtMwJGJ0nT5iS_Rz6sds",
 					paymentRequest : {
 						currencyCode : "USD",
-						subtotal : "11.00",
-						total : "11.00"
+						subtotal : ${cart.totalValue},
+						total : ${cart.totalValue}
 					}
 				});
 		V.on("payment.success", function(payment) {
