@@ -5,13 +5,17 @@ import java.util.List;
 import lombok.Data;
 
 @Data
+
+
 public class Category {
 	
-	
+	private Long Id;
+
 	private String name;
 
-	private List<Product> products;
 
-	
+	private Catalog catalog;
+
+	private List<Product> products;
 
 }

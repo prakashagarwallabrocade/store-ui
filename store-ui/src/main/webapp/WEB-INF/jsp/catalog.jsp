@@ -24,7 +24,7 @@
 						<div class="divTableRow">
 							<div class="divTableCell">
 								<input type="checkbox" name="selectedProds"
-									value="${product.productId}">
+									value="${product.id}">
 							</div>
 							<div class="divTableCell">
 								<c:out value="${product.name}" />

@@ -39,27 +39,30 @@ public class CartController {
 		BigDecimal totalValue = new BigDecimal("0");
 		String[] selectedProds = request.getParameterValues("selectedProds");
 		RestTemplate restTemplate = new RestTemplate();
-		/*
-		 * for (int i = 0; i < selectedProds.length; i++) {
-		 * System.out.println("CartController.showCalaogPage()" + (selectedProds[i]));
-		 * 
-		 * String resourceUrl = "http://localhost:8080/product/" + selectedProds[i];
-		 * Product product = restTemplate.getForObject(resourceUrl, Product.class);
-		 * totalValue= totalValue.add(product.getPrice());
-		 * selectedProdsList.add(product); }
-		 */
+	
+		 for (int i = 0; i < selectedProds.length; i++) {
+		 System.out.println("CartController.showCalaogPage()" + (selectedProds[i]));
+		 
+		  String resourceUrl = "http://localhost:8080/product/" + selectedProds[i];
+		  Product product = restTemplate.getForObject(resourceUrl, Product.class);
+		  System.out.println("CartController.showCartPage()::product.getPrice()::"+product.getPrice());
+		  totalValue= totalValue.add(product.getPrice());
+		  selectedProdsList.add(product); 
+		  }
+		 
 
 		// ForTimeBeing
-		Catalog catalog = catelogService.retrieveCatalog();
-		for (int i = 0; i < catalog.getCategories().size(); i++) {
-			selectedProdsList = catalog.getCategories().get(0).getProducts();
-		}
+		/*
+		 * Catalog catalog = catelogService.retrieveCatalog(); for (int i = 0; i <
+		 * catalog.getCategories().size(); i++) { selectedProdsList =
+		 * catalog.getCategories().get(0).getProducts(); }
+		 */
 
 		Cart cart = new Cart();
 		cart.setProducts(selectedProdsList);
 		cart.setTotalValue(totalValue);
 
-		cart.setTotalValue(new BigDecimal("101111"));
+		//cart.setTotalValue(new BigDecimal("101111"));
 		model.put("cart", cart);
 		return "cart";
 	}

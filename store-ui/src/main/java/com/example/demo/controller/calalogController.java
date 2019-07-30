@@ -16,6 +16,7 @@ public class calalogController {
 	
 	@RequestMapping(value="/catalog", method = RequestMethod.GET)
     public String showCalaogPage(ModelMap model){
+		//System.out.println("calalogController.showCalaogPage()::catelogService.retrieveCatalog():: "+catelogService.retrieveCatalog());
 		model.put("catalog", catelogService.retrieveCatalog());
 	       return "catalog";
     }
